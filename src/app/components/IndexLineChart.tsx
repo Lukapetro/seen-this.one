@@ -2,10 +2,10 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Area,
-  AreaChart,
   CartesianGrid,
   Legend,
+  Line,
+  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -13,26 +13,16 @@ import {
 } from "recharts";
 import { chartColors, chartData, formatYAxis, tooltipFormatter, tooltipStyle } from "./chart-data";
 
-const IndexComparisonChart = () => {
+const IndexLineChart = () => {
   return (
     <Card className="w-full border border-border/40 bg-gradient-to-b from-card/50 to-card">
       <CardContent className="p-4 md:p-6">
         <div className="h-[500px]">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart
+            <LineChart
               data={chartData}
               margin={{ top: 10, right: 30, left: 10, bottom: 4 }}
             >
-              <defs>
-                <linearGradient id="defiColor" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={chartColors.defi} stopOpacity={0.8} />
-                  <stop offset="95%" stopColor={chartColors.defi} stopOpacity={0.1} />
-                </linearGradient>
-                <linearGradient id="aiColor" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={chartColors.ai} stopOpacity={0.8} />
-                  <stop offset="95%" stopColor={chartColors.ai} stopOpacity={0.1} />
-                </linearGradient>
-              </defs>
               <CartesianGrid
                 strokeDasharray="3 3"
                 stroke="hsl(var(--border))"
@@ -73,26 +63,24 @@ const IndexComparisonChart = () => {
                 iconType="circle"
                 iconSize={8}
               />
-              <Area
+              <Line
                 type="monotone"
                 dataKey="defi"
                 name="DeFi Index (2020-2021)"
                 stroke={chartColors.defi}
-                fill="url(#defiColor)"
-                fillOpacity={1}
                 strokeWidth={2}
+                dot={false}
               />
-              <Area
+              <Line
                 type="monotone"
                 dataKey="ai"
                 name="AI Index (2024 - Current)"
                 stroke={chartColors.ai}
-                fill="url(#aiColor)"
-                fillOpacity={1}
                 strokeWidth={2}
+                dot={false}
                 connectNulls={true}
               />
-            </AreaChart>
+            </LineChart>
           </ResponsiveContainer>
         </div>
       </CardContent>
@@ -100,4 +88,4 @@ const IndexComparisonChart = () => {
   );
 };
 
-export default IndexComparisonChart;
+export default IndexLineChart;

@@ -1,6 +1,6 @@
+import ChartSelector from "./components/ChartSelector";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import IndexComparisonChart from "./components/IndexComparisonChart";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
                 current AI market trends.
               </p>
             </div>
-            <IndexComparisonChart />
+            <ChartSelector />
           </div>
         </div>
       </main>
