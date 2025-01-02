@@ -15,23 +15,23 @@ import {
 interface DataPoint {
   date: string;
   defi: number;
-  ai: number;
+  ai?: number; // Make ai optional
 }
 
 const data: DataPoint[] = [
-  { date: "Apr", defi: 3, ai: 3 },
-  { date: "May", defi: 4, ai: 3.5 },
-  { date: "Jun", defi: 5, ai: 4 },
-  { date: "Jul", defi: 10, ai: 5 },
-  { date: "Aug", defi: 12, ai: 6 },
-  { date: "Sep", defi: 10, ai: 7 },
-  { date: "Oct", defi: 12, ai: 8 },
-  { date: "Nov", defi: 15, ai: 10 },
-  { date: "Dec", defi: 30, ai: 12 },
-  { date: "Jan", defi: 45, ai: 0 },
-  { date: "Feb", defi: 55, ai: 0 },
-  { date: "Mar", defi: 65, ai: 0 },
-  { date: "Apr", defi: 63, ai: 0 },
+  { date: "Apr", defi: 3.11, ai: 0 },
+  { date: "May", defi: 3.71, ai: 0 },
+  { date: "Jun", defi: 4.98, ai: 0 },
+  { date: "Jul", defi: 7.24, ai: 0 },
+  { date: "Aug", defi: 15.81, ai: 0 },
+  { date: "Sep", defi: 12.59, ai: 0 },
+  { date: "Oct", defi: 13.19, ai: 3 },
+  { date: "Nov", defi: 19.18, ai: 7 },
+  { date: "Dec", defi: 21.56, ai: 12 },
+  { date: "Jan", defi: 44.98, ai: 19 },
+  { date: "Feb", defi: 64.53 },
+  { date: "Mar", defi: 103.12 },
+  { date: "Apr", defi: 129.17 },
 ];
 
 const formatYAxis = (value: number) => `$${value}B`;
@@ -74,9 +74,9 @@ const IndexComparisonChart = () => {
                 stroke="hsl(var(--muted-foreground))"
                 tick={{ fill: "hsl(var(--muted-foreground))" }}
                 tickFormatter={formatYAxis}
-                domain={[0, 70]}
+                domain={[0, 140]}
                 axisLine={{ stroke: "hsl(var(--border))" }}
-                ticks={[0, 10, 20, 30, 40, 50, 60, 70]}
+                ticks={[0, 20, 40, 60, 80, 100, 120, 140]}
                 tickLine={false}
               />
               <Tooltip
@@ -117,6 +117,7 @@ const IndexComparisonChart = () => {
                 fill="url(#aiColor)"
                 fillOpacity={1}
                 strokeWidth={2}
+                connectNulls={true}
               />
             </AreaChart>
           </ResponsiveContainer>

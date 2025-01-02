@@ -17,15 +17,13 @@ const Footer = () => {
             </a>
           </div>
           <div className="text-sm text-foreground/60">
-            Data from{" "}
             <a
-              href="https://messari.io"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-foreground/80 hover:text-foreground transition-colors hover:underline underline-offset-4"
+              href="/disclaimer"
+              className="font-medium text-foreground/80 hover:text-foreground transition-colors hover:underline underline-offset-4 mr-4"
             >
-              Messari
+              Data Sources
             </a>
+          
           </div>
         </div>
       </div>
