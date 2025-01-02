@@ -15,7 +15,7 @@ import {
 interface DataPoint {
   date: string;
   defi: number;
-  ai?: number; // Make ai optional
+  ai?: number;
 }
 
 const data: DataPoint[] = [
@@ -44,7 +44,7 @@ const IndexComparisonChart = () => {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={data}
-              margin={{ top: 10, right: 30, left: 10, bottom: 10 }}
+              margin={{ top: 10, right: 30, left: 10, bottom: 4 }}
             >
               <defs>
                 <linearGradient id="defiColor" x1="0" y1="0" x2="0" y2="1">
@@ -88,15 +88,21 @@ const IndexComparisonChart = () => {
                   boxShadow:
                     "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
                 }}
-                formatter={(value: number) => [`$${value}B`, ""]}
+                formatter={(value: number, name: string) => {
+                  const label = name.includes("AI") ? "AI Agents Index" : "DeFi Index";
+                  return [`$${value}B`, label];
+                }}
+                label
               />
               <Legend
                 wrapperStyle={{
                   color: "hsl(var(--card-foreground))",
                   fontWeight: 500,
+                  paddingTop: 16
                 }}
                 verticalAlign="bottom"
                 height={48}
+                margin={{ top: 0 }}
                 iconType="circle"
                 iconSize={8}
               />
