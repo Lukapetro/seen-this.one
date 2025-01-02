@@ -25,7 +25,7 @@ const Header = () => {
           </div>
           <nav className="flex items-center">
             <a
-              href="https://github.com/lukapetro"
+              href="https://github.com/Lukapetro/seen-this.one"
               target="_blank"
               rel="noreferrer"
               className="text-foreground/60 transition-colors hover:text-foreground/80 hover:underline underline-offset-4"

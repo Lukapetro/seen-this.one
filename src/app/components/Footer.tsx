@@ -8,12 +8,12 @@ const Footer = () => {
           <div className="text-sm text-foreground/60">
             Built by{" "}
             <a
-              href="https://github.com/lukapetro"
+              href="https://x.com/0xSpit"
               target="_blank"
               rel="noreferrer"
               className="font-medium text-foreground/80 hover:text-foreground transition-colors hover:underline underline-offset-4"
             >
-              Luka Petrovic
+              Spit
             </a>
           </div>
           <div className="text-sm text-foreground/60">
